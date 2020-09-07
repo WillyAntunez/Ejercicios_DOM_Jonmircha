@@ -1,0 +1,567 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+:root{
+    --amarillo-JS: #ffdd1f;
+    --black: #111;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+body.dark-mode{
+    background-color: #333;
+    color: white;
+}
+
+h1, h2, h3{
+    font-weight: 700;
+    color: var(--black);
+}
+
+h2.dark-mode, h3.dark-mode{
+    color: var(--amarillo-JS);
+}
+
+.dark-mode a{
+    color: white;
+}
+
+video{
+    max-width: 90%;
+}
+
+/* Header */
+
+header{
+    width: 100%;
+    position: fixed;
+
+    z-index: 3;
+
+    background-color: var(--amarillo-JS); 
+    box-shadow: 1px 11px 18px 0px rgba(0,0,0,0.05);
+}
+
+header h1{
+    margin: 10px 0;
+
+    text-align: center;
+}
+
+/* fixed buttons */
+.fixed-button{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--amarillo-JS);
+    position: fixed;
+    border: none;
+    box-shadow: 1px 11px 18px 0px rgba(0,0,0,0.10);
+    cursor: pointer;
+    z-index: 3;
+}
+
+.hamburger{
+    z-index: 4;
+
+    right: 10px;
+    bottom: 10px;
+}
+
+.arrow{
+    right: 90px;
+    bottom: 10px;
+
+    transition: all .3s ease-in-out;
+}
+
+.dark-mode-btn{
+    left: 10px;
+    bottom: 10px;
+
+    transition: background-image .3s ease-in-out;
+
+    background-image: url('../img/Luna.svg');
+}
+
+.sun{
+    background-image: url('../img/sol.svg');
+}
+
+/* Message box */
+.message-container{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+
+    position: fixed;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+}
+
+@media screen and (max-width:780px){
+    .message-container{
+        align-items: center;
+    }
+}
+
+.message-box{
+    padding: 20px 20px;
+    border-radius: 10px;
+
+    transition: all .3s ease-in-out;
+}
+
+.message-box h2{
+    color: white;
+    margin: 0;
+}
+
+.alert{
+    background-color: rgb(255, 70, 37);
+}
+
+.success{
+    background-color: rgb(18, 145, 18);
+}
+
+
+
+/* NAV Panel */
+
+nav{
+    width: 100%;
+    height: 100%; 
+
+    position: fixed;
+    left: 0;
+
+    background-color: rgba(.7, 0, 0, 0.8);
+    
+    transition: left .5s ease-in-out;
+
+    overflow-y: auto;
+
+    z-index: 3;
+}
+
+nav div {
+    width: 100%;
+    height: 100%; 
+    
+}
+
+nav a{
+    width: 100%;
+    padding: 40px 0;
+    display: block;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+nav a h2{
+    margin: 0;
+    color: var(--amarillo-JS);
+}
+
+nav a:hover{
+    background-color: var(--amarillo-JS);
+}
+
+nav a:hover h2{
+    color: var(--black);
+}
+
+nav .active{
+    background-color: var(--amarillo-JS);
+}
+nav .active h2{
+    color: var(--black);
+}
+
+.hidden-guide{
+    left: -100%;
+}
+
+@media screen and (min-width:1025px){
+
+    section{
+        padding-right: 25%;
+    }
+
+    .arrow{
+        right: auto;
+        left: 90px;
+    }
+
+    nav{
+        width: 25%;
+        left: auto;
+        right: 0;
+        padding-top: 60px;
+        z-index: 1;
+    }
+
+    nav a{
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    .hidden-guide{
+        left: auto;
+    }
+
+    .hamburger{
+        display: none;
+    }
+
+}
+
+/* Section */
+
+section{
+    width: 100%;
+    height: 100%;
+}
+
+section .seccion {
+    padding-top: 4rem;
+    width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section .seccion h2, .seccion h3{
+    text-align: center;
+}
+
+/* Ejercicio 2: reloj y alarma */
+.ejercicio2{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ejercicio2 .controles{
+    display: flex;
+}
+
+.ejercicio2 .reloj{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Ejercicio 3: eventos del teclado */
+.ejercicio3{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.moving-area{  
+    width: 90%;
+    height: 350px;
+    border: 10px solid var(--amarillo-JS);
+
+    display: flex;
+
+    background-color: var(--black);
+    box-shadow: 1px 11px 18px 0px rgba(0,0,0,0.05);
+}
+
+.moving-area .ball{
+    width: 40px;
+    height: 40px;
+    margin:auto;
+    border-radius: 50%;
+    
+
+    background-color: var(--amarillo-JS);
+}
+
+/* ejercicio 5: responsive con javascript */
+
+.section4 a{
+    text-decoration: none;
+}
+
+.section4 a h3{
+    color: turquoise;
+}
+
+/* responsive tester */
+
+.responsive-tester{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.responsive-tester.dark-mode{
+    color: white;
+}
+
+.responsive-tester .errors{
+    color: tomato;
+}
+
+/* Deteccion de la camara web */
+.webcam-video{
+    width: 50%;
+    margin-top: 10px;
+}
+
+.error{
+    color: tomato;
+    margin: 5px;
+}
+
+/* Deteccion de la localizacion */
+.location-div{
+    text-align: center;
+}
+
+/* Filtro de busquedas */
+.cards{
+    width: 100%;
+    padding: 20px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.card{
+    background-color: var(--black);
+    margin: 0 0 10px 10px;
+
+    opacity: 1;
+
+    transition: all .3s ease-in-out;
+}
+
+.card.hidden{
+
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+
+}
+
+@media screen and (max-width: 768px){
+    .card{
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 540px){
+    .card{
+        width: 90%;
+    }
+}
+
+.card img{
+    width: 100%;
+}
+
+.card .card-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .card-title h3{
+    color: var(--amarillo-JS);
+    margin: 10px;
+}
+
+/* Responsive slider */
+.seccion11{
+    display: flex;
+    align-items: center;
+}
+
+.slider{
+    position: relative;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.slider-controls{
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    left: 0;
+    top: 0;
+    
+    position: absolute;
+
+}
+
+.slider-controls .slide-button {
+    font-size: 40px;
+    background-color: var(--amarillo-JS);
+
+    color: var(--black);
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    box-shadow: 1px 11px 18px 0px rgba(0,0,0,0.05);
+
+    cursor: pointer;
+}
+
+
+
+.slider .slides{
+    position: relative;
+    height: 400px;
+}
+
+.slider .slide{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    transition: opacity .5s ease-in;
+}
+
+.slider .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .show-slide{
+    opacity: 1;
+}
+
+
+
+/* contact-form */
+.contact-form{
+
+    font-size: 16px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 70%;
+
+}
+
+.contact-form input{
+    margin: 5px 0;
+    width: 100%;
+    height: 35px;
+    font-size: 15px;
+}
+
+.contact-form input[type="submit"]{
+    width: 50%;
+}
+
+.contact-form textarea{
+    resize: none;
+
+    margin: 5px 0;
+
+    width: 100%;
+    height: 150px;
+
+    font-size: 16px;
+}
+
+.contact-form .error{
+    margin-top: 2px;
+}
+
+/* Narrator */
+.narrator-form{
+
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+
+}
+
+.narrator-form select {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 5px;
+
+    font-size: 16px;
+}
+
+.narrator-form textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 5px;
+
+    font-size: 16px;
+}
+
+.narrator-form [type="submit"]{
+    width: 50%;
+    height: 25px;
+}
